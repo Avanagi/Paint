@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="920.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.paint.Controller">
+    <effect>
+        <InnerShadow>
+            <color>
+                <Color red="0.2354685664176941" green="0.19580000638961792" blue="0.8899999856948853" />
+            </color>
+        </InnerShadow>
+    </effect>
+    <MenuBar VBox.vgrow="NEVER">
+        <Menu mnemonicParsing="false" text="File">
+            <MenuItem fx:id="new" mnemonicParsing="false" onAction="#NewFile" text="New" />
+            <MenuItem fx:id="saveas" mnemonicParsing="false" onAction="#FileSave" text="Save..." />
+            <MenuItem fx:id="imageonimage" mnemonicParsing="false" onAction="#InsertImageOnImage" text="Insert Image" />
+            <MenuItem fx:id="filter" mnemonicParsing="false" onAction="#BilateralFilter" text="BilateralFilter " />
+            <MenuItem fx:id="quit" mnemonicParsing="false" onAction="#ApplyExit" text="Quit" />
+        </Menu>
+    </MenuBar>
+    <SplitPane dividerPositions="0.2505567928730512" focusTraversable="true" VBox.vgrow="ALWAYS">
+        <AnchorPane maxWidth="250.0" minWidth="250.0" prefHeight="872.0" prefWidth="250.0">
+            <Button fx:id="rectangle" layoutX="18.0" layoutY="357.0" mnemonicParsing="false" onAction="#onRectangleClick" text="Создать прямоугольник" />
+            <Button layoutX="18.0" layoutY="167.0" mnemonicParsing="false" onAction="#onClickEraser" prefHeight="25.0" prefWidth="72.0" text="Ластик" />
+            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" style="&#10;" text="Панель управления" textAlignment="CENTER">
+                <font>
+                    <Font size="18.0" fx:id="x1" />
+                </font>
+                <textFill>
+                    <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
+                </textFill>
+            </Label>
+            <Button fx:id="pencil" layoutX="18.0" layoutY="64.0" mnemonicParsing="false" onAction="#onClickPencil" text="Карандаш" />
+            <Button layoutX="18.0" layoutY="117.0" mnemonicParsing="false" onAction="#onClickBrush" prefHeight="25.0" prefWidth="140.0" text="Сплошная заливка" />
+            <ColorPicker fx:id="colorPick" layoutX="18.0" layoutY="242.0" />
+            <Label layoutX="18.0" layoutY="209.0" text="Выборка цвета" />
+            <Slider fx:id="sliderSize" layoutX="20.0" layoutY="317.0" max="20.0" min="1.0" showTickLabels="true" showTickMarks="true" />
+            <Label layoutX="18.0" layoutY="286.0" text="Выборка толщины" />
+            <Button fx:id="circle" layoutX="18.0" layoutY="404.0" mnemonicParsing="false" onAction="#onCircleClick" text="Создать круг" textOverrun="WORD_ELLIPSIS" />
+            <Button layoutX="20.0" layoutY="454.0" mnemonicParsing="false" onAction="#onClickClear" text="Очистить поле" />
+            <Button layoutX="18.0" layoutY="500.0" mnemonicParsing="false" onAction="#onClickResizeImage" text="Выделить область для увеличения" />
+        </AnchorPane>
+        <Canvas fx:id="canvas" height="872.0" width="1030.0" />
+    </SplitPane>
+    <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
+        <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+        </padding>
+        <Label maxHeight="1.7976931348623157E308" text="Left status" HBox.hgrow="ALWAYS">
+            <font>
+                <Font size="11.0" fx:id="x3" />
+            </font>
+            <textFill>
+                <Color red="0.625" green="0.625" blue="0.625" fx:id="x4" />
+            </textFill>
+        </Label>
+        <Pane HBox.hgrow="ALWAYS" />
+        <Label font="$x3" text="Right status" textFill="$x4" HBox.hgrow="NEVER" />
+    </HBox>
+</VBox>
